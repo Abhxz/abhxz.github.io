@@ -43,66 +43,70 @@
         var maxLevelWidth = 80;
         $('.skillLevel').each(function(){
             if($(this).html() == 'python'){
-                $(this).animate({width :maxLevelWidth * 85/100+'%'} ,1000);
+                $(this).animate({width :maxLevelWidth * 90/100+'%'} ,1000);
+            }else if($(this).html() == 'flask'){
+                $(this).animate({width:maxLevelWidth * 84/100+'%'} ,600);
+            }else if($(this).html() == 'elastic search'){
+                $(this).animate({width:maxLevelWidth * 80/100+'%'} ,200);
             }else if($(this).html() == 'java'){
-                $(this).animate({width:maxLevelWidth * 77/100+'%'} ,600);
+                $(this).animate({width:maxLevelWidth * 84/100+'%'} ,700);
+            }else if($(this).html() == 'spring boot'){
+                $(this).animate({width:maxLevelWidth * 80/100+'%'} ,500);
             }else if($(this).html() == 'html'){
-                $(this).animate({width:maxLevelWidth * 73/100+'%'} ,200);
+                $(this).animate({width:maxLevelWidth * 83/100+'%'} ,300);
             }else if($(this).html() == 'css'){
-                $(this).animate({width:maxLevelWidth * 72/100+'%'} ,700);
-            }else if($(this).html() == 'bootstrap'){
-                $(this).animate({width:maxLevelWidth * 68/100+'%'} ,500);
-            }else if($(this).html() == 'javascript'){
-                $(this).animate({width:maxLevelWidth * 45/100+'%'} ,300);
-            }else if($(this).html() == 'spring'){
-                $(this).animate({width:maxLevelWidth * 65/100+'%'} ,350);
+                $(this).animate({width:maxLevelWidth * 75/100+'%'} ,350);
             }else if($(this).html() == 'mysql'){
-                $(this).animate({width:maxLevelWidth * 40/100+'%'} ,1100);
-            }else if($(this).html() == 'c'){
-                $(this).animate({width:maxLevelWidth * 60/100+'%'} ,1400);
+                $(this).animate({width:maxLevelWidth * 50/100+'%'} ,1100);
+            }else if($(this).html() == 'git'){
+                $(this).animate({width:maxLevelWidth * 85/100+'%'} ,1400);
             }
         });
 
     }
 
+    function showCertification(){
+        var animationDuration = 500;
+        $('#certification-container div ul li:nth-child(1) div').animate({left : '0' } , animationDuration,
+            function(){
+            $('#certification-container div ul li:nth-child(2) div').animate({left : '0' }, animationDuration,
+            function(){
+            $('#certification-container div ul li:nth-child(3) div').animate({left : '0' }, animationDuration,
+            function(){
+            $('#certification-container div ul li:nth-child(4) div').animate({left : '0' }, animationDuration);
+        });
+        });
+        });
+    }
+
     function showHobbies(){
         var animationDuration = 800;
         $('#likes-container div ul li:nth-child(1) div').animate({left : '0' } , animationDuration,
-            function(){
-            $('#likes-container div ul li:nth-child(2) div').animate({left : '0' }, animationDuration,
-            function(){
-            $('#likes-container div ul li:nth-child(3) div').animate({left : '0' },animationDuration,
-            function(){
-            $('#likes-container div ul li:nth-child(4) div').animate({left : '0' },animationDuration);
+            function(){$('#likes-container div ul li:nth-child(2) div').animate({left : '0' }, animationDuration,
+            function(){$('#likes-container div ul li:nth-child(3) div').animate({left : '0' }, animationDuration,
+            function(){$('#likes-container div ul li:nth-child(4) div').animate({left : '0' }, animationDuration);
         });
-        } );
         });
-        
-
+        });
     }
-
-   
-
-
-
 
     window.addEventListener('load', function(){
         $('#headerOptionsBox').addClass('rightToLeftAnimation');
         $('#profileIcon span' ).css('background-color','whitesmoke');
 
         writeIntro('#introductionQuote', intro);
+        if(isOnScreen($('#certification-container'))) showCertification();
         if(isOnScreen($('#likes-container'))) showHobbies();
-       // if(isOnScreen('#about')) $('#about #profileImage').addClass('profileImageEnlarge') ;
         if(isOnScreen('#about')) $('#about .section-name span').addClass('section-name-span');
         if(isOnScreen('#project')) $('#project .section-name span').addClass('section-name-span');
         if(isOnScreen('#education-container')) $('#education-container .section-name span').addClass('section-name-span');
+        if(isOnScreen('#certification-container')) $('#certification-container .section-name span').addClass('section-name-span');
         if(isOnScreen('#likes-container')) $('#likes-container .section-name span').addClass('section-name-span');
         if(isOnScreen('#contact')) $('#contact .section-name span').addClass('section-name-span');
 
     });
 
     $(document).ready( function(){
-            //$(this).scrollTop(0);
             $('#profile button:nth-child(1)').addClass('leftToRightAnimation');
             $('#profile button:nth-child(2)').addClass('rightToLeftAnimation');
             $('#linkContainer').addClass('leftToRightAnimation');
@@ -111,11 +115,10 @@
 
             //tooltip
             $('[data-toggle="tooltip"]').tooltip();
-
-           // if(isOnScreen('#about')) $('#about #profileImage').addClass('profileImageEnlarge') ;
             if(isOnScreen('#about')) $('#about .section-name span').addClass('section-name-span');
             if(isOnScreen('#project')) $('#project .section-name span').addClass('section-name-span');
             if(isOnScreen('#education-container')) $('#education-container .section-name span').addClass('section-name-span');
+            if(isOnScreen('#certification-container')) $('#certification-container .section-name span').addClass('section-name-span');
             if(isOnScreen('#likes-container')) $('#likes-container .section-name span').addClass('section-name-span');
             if(isOnScreen('#contact')) $('#contact .section-name span').addClass('section-name-span');
 
@@ -135,17 +138,15 @@
         window.addEventListener('scroll', function(){
 
             isOnScreen('#profile') ? $('#scrollTopButton div').hide() :$('#scrollTopButton div').show();
-           // if(isOnScreen('#about',100)) $('#about #profileImage').addClass('profileImageEnlarge') ;
             if(isOnScreen('#about', 200)) $('#about .section-name span').addClass('section-name-span');
             if(isOnScreen('#project', 200)) $('#project .section-name span').addClass('section-name-span');
             if(isOnScreen('#education-container', 200)) $('#education-container .section-name span').addClass('section-name-span');
+            if(isOnScreen('#certification-container', 200)) $('#certification-container .section-name span').addClass('section-name-span');
             if(isOnScreen('#likes-container', 200)) $('#likes-container .section-name span').addClass('section-name-span');
             if(isOnScreen('#contact', 200)) $('#contact .section-name span').addClass('section-name-span');
-        // if(isOnScreen('#about ', 200)) $('#about .aboutQuote p').css({'background-color': 'white'});
-
 
             if(isOnScreen($('#skillsContainer'), 420)) skillLevel();
-
+            if(isOnScreen($('#certification-container'), 420)) showCertification();
             if(isOnScreen($('#likes-container'), 420)) showHobbies();
             
             
@@ -179,9 +180,6 @@
             var mailLink = 'mailto:we.abhay@gmail.com?subject='+subject+'&body='+'Name : '+name+', Message : '+body;
             $('#sendEmailBtn').attr("href",mailLink);
         }
-
-
-        
     });
         
     });
