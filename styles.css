@@ -160,13 +160,14 @@ ul{
 
     #project > div{
         height: fit-content!important;
-       
+        font-family: "Tisa";
     }
     
     #project ul li {
         float: none!important;
         width: 100%!important;
         margin-top: 5vh!important;
+        font-family: "Tisa";
     }
    
 
@@ -204,6 +205,7 @@ ul{
 
     #project > div{
         height: 100vh!important;
+        font-family: "Tisa";
     }
     #profile #introductionQuote{
         width: 35vw!important;
@@ -216,6 +218,7 @@ ul{
 
     #project ul li > div{
         height: fit-content!important;
+        font-family: "Tisa";
     }
     #education-container div div{
         width: 80%!important;
@@ -391,6 +394,7 @@ ul{
    
 }
 */
+
 #profile .arrowUp{
     width: 100%;
     bottom: 0;
@@ -414,12 +418,12 @@ ul{
     color: white;
     font-family: 'IBM Plex Serif', serif!important;
 }
+
 .section-name span{
     padding-top: 0;
     display: inline-block; width: 0px; border-radius: 100px; height: 5px; 
     background-color: white;
 }
-
 
 about .about-container{
     width: 100%;
@@ -430,6 +434,7 @@ about .about-container{
     z-index: 25;
     height: fit-content;
 }
+
 /* #about .section-name{
     color: #16161d;
 } */
@@ -438,38 +443,39 @@ about .about-container{
 } */
 
 about #aboutBox div:nth-child(1){
-    
     width: 100%; display: flex; text-align: center;
-    padding: 0;
-    
+    padding: 0;    
 }
-#about  .profileImageContainer{
+
+#about .profileImageContainer{
     
     text-align: center;
     height: 250px;
     width: 250px;
 }
-about img{
+
+about img {
     height: 250px;
     width: 250px;   
-    
 }
-about  .aboutQuote{ 
+
+about .aboutQuote { 
     float: left;
-    flex-grow: 1;
+    flex-grow: 2;
+    padding-left: 5%;
     text-align: left;
     font-size: large;
-    font-weight:500;
-    
+    font-weight: 300;
 }
 
-about  .aboutQuote p {
+about .aboutQuote p {
+    padding-left: 5%;
     text-align: left;
-    font-family: 'Flamenco';
-    
+    /* font-family: 'Flamenco'; */
+    font-family: 'TISA';  
 }
 
-about  .aboutQuote button{
+about .aboutQuote button{
     background: transparent;
     border-style: solid;
     border-color: teal;
@@ -477,19 +483,14 @@ about  .aboutQuote button{
     border-width: 2px;
     opacity: 1;
     font-weight: 700;
-    font-size: medium;
+    font-size: large;
     float: left;
 }
 
-about  .aboutQuote button:hover{
+about .aboutQuote button:hover{
     border-color: teal;
     color: teal;
 }
-
-
-
-
-
 
 #skillsContainer{
     width: 50vw; padding:0;height: fit-content; background-color: transparent; z-index: 100; margin-top: 50px;
@@ -534,7 +535,7 @@ about  .aboutQuote button:hover{
 } */
 #project > div{
     border-top-left-radius:50px;
-     border-top-right-radius:50px;
+    border-top-right-radius:50px;
     width: 100%;
     height: 160vh;
     border-style: solid;
@@ -561,7 +562,6 @@ about  .aboutQuote button:hover{
     font-weight: bold;
     text-align: left;
     color: cadetblue;
-
 }
 
 #project ul li > div{
@@ -570,6 +570,7 @@ about  .aboutQuote button:hover{
     z-index: 1;
     border-radius: 10px;
     padding: 1.5em;
+    justify-content: center;
     text-align: center;
     margin-top: 40px;
     border-style: solid;
@@ -577,8 +578,6 @@ about  .aboutQuote button:hover{
     border-width: 0px 1px 1px 0px;
     color: white;
     box-shadow: inset 6px 8px 15px #3D444A;
-
-   
 }
  
 /* #project ul li:nth-child(1) div{
@@ -610,7 +609,7 @@ about  .aboutQuote button:hover{
     padding: 0;
     font-size: larger;
     filter: brightness(100%);
-    font-family: 'Flamenco';
+    font-family: "Tisa";
     height: 18vh;
     
 }
