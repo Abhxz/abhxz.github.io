@@ -34,8 +34,6 @@
         
         }(i));
         }
-        
-
     }
 
 
@@ -98,6 +96,7 @@
         if(isOnScreen($('#certification-container'))) showCertification();
         if(isOnScreen($('#likes-container'))) showHobbies();
         if(isOnScreen('#about')) $('#about .section-name span').addClass('section-name-span');
+        if(isOnScreen('#skill')) $('#skill .section-name span').addClass('section-name-span');
         if(isOnScreen('#project')) $('#project .section-name span').addClass('section-name-span');
         if(isOnScreen('#education-container')) $('#education-container .section-name span').addClass('section-name-span');
         if(isOnScreen('#certification-container')) $('#certification-container .section-name span').addClass('section-name-span');
@@ -116,6 +115,7 @@
             //tooltip
             $('[data-toggle="tooltip"]').tooltip();
             if(isOnScreen('#about')) $('#about .section-name span').addClass('section-name-span');
+            if(isOnScreen('#skill')) $('#skill .section-name span').addClass('section-name-span');
             if(isOnScreen('#project')) $('#project .section-name span').addClass('section-name-span');
             if(isOnScreen('#education-container')) $('#education-container .section-name span').addClass('section-name-span');
             if(isOnScreen('#certification-container')) $('#certification-container .section-name span').addClass('section-name-span');
@@ -144,7 +144,6 @@
             if(isOnScreen('#certification-container', 200)) $('#certification-container .section-name span').addClass('section-name-span');
             if(isOnScreen('#likes-container', 200)) $('#likes-container .section-name span').addClass('section-name-span');
             if(isOnScreen('#contact', 200)) $('#contact .section-name span').addClass('section-name-span');
-
             if(isOnScreen($('#skillsContainer'), 420)) skillLevel();
             if(isOnScreen($('#certification-container'), 420)) showCertification();
             if(isOnScreen($('#likes-container'), 420)) showHobbies();
