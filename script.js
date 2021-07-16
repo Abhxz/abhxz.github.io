@@ -41,23 +41,23 @@
         var maxLevelWidth = 80;
         $('.skillLevel').each(function(){
             if($(this).html() == 'python'){
-                $(this).animate({width :maxLevelWidth * 90/100+'%'} ,1000);
+                $(this).animate({width :maxLevelWidth * 90/100+'%'}, 1000);
             }else if($(this).html() == 'flask'){
-                $(this).animate({width:maxLevelWidth * 84/100+'%'} ,600);
+                $(this).animate({width:maxLevelWidth * 84/100+'%'}, 1100);
             }else if($(this).html() == 'elastic search'){
-                $(this).animate({width:maxLevelWidth * 80/100+'%'} ,200);
+                $(this).animate({width:maxLevelWidth * 80/100+'%'}, 1200);
             }else if($(this).html() == 'java'){
-                $(this).animate({width:maxLevelWidth * 84/100+'%'} ,700);
+                $(this).animate({width:maxLevelWidth * 84/100+'%'}, 1300);
             }else if($(this).html() == 'spring boot'){
-                $(this).animate({width:maxLevelWidth * 80/100+'%'} ,500);
+                $(this).animate({width:maxLevelWidth * 80/100+'%'}, 1400);
             }else if($(this).html() == 'html'){
-                $(this).animate({width:maxLevelWidth * 83/100+'%'} ,300);
+                $(this).animate({width:maxLevelWidth * 83/100+'%'}, 1500);
             }else if($(this).html() == 'css'){
-                $(this).animate({width:maxLevelWidth * 75/100+'%'} ,350);
+                $(this).animate({width:maxLevelWidth * 75/100+'%'}, 1600);
             }else if($(this).html() == 'mysql'){
-                $(this).animate({width:maxLevelWidth * 50/100+'%'} ,1100);
+                $(this).animate({width:maxLevelWidth * 50/100+'%'}, 1700);
             }else if($(this).html() == 'git'){
-                $(this).animate({width:maxLevelWidth * 85/100+'%'} ,1400);
+                $(this).animate({width:maxLevelWidth * 85/100+'%'} ,1800);
             }
         });
 
