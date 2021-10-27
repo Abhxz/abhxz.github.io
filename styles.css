@@ -12,9 +12,8 @@ body{
   	background-attachment: fixed;
     color: white!important;
     font-family: 'Work Sans', sans-serif!important;
-    
-    
 }
+
 .btn{
     font-weight: bolder;
 }
@@ -22,11 +21,13 @@ body{
 ul{
     padding: 0; list-style: none;
 }
+
 li{
     padding: 0;
     text-align: left; 
     padding-left: 10vh;
 }
+
 /* //Animations Effects */
 .fromBlurToVisible{
     animation-name: blurToVisible;
@@ -47,6 +48,7 @@ li{
     from {width : 0px; height : 0px;}
     to { width : 250px ; height: 250px;}
 }
+
 .leftToRightAnimation{
     animation-name: leftToRightAnimation;
     animation-duration: 2s;
@@ -54,7 +56,6 @@ li{
     animation-fill-mode: forwards;
 
 }
-
 @keyframes leftToRightAnimation{
     from {left: -100vw; }
     to{left: 0;}
@@ -66,11 +67,11 @@ li{
     animation-timing-function: ease-in-out;
     animation-fill-mode: forwards;
 }
-
 @keyframes rightToLeftAnimation{
     from {right:-100vw}
     to {right:0}
 }
+
 .section-name-heading{
     animation-name:section-name-heading;
     animation-duration: 2s;
@@ -330,9 +331,6 @@ li{
     color: black;
 }
 
-
-
-
 /* profile */
 #profile > div{
     padding: 10;
@@ -343,8 +341,7 @@ li{
     background-repeat: no-repeat;
     background-size: cover;*/
     opacity: 2;
-    z-index: -2;
-    
+    z-index: -2;   
 }
 
 #profile div+div{
@@ -360,7 +357,8 @@ li{
     height: 130px;
     padding-top: 40px;
     padding-bottom: 40px;
-    background-color: aliceblue;
+    background-color: rgb(184, 197, 219);
+    /* background-image: url("assets/coder.jpg"); */
 }
 
 #profile #introductionQuote{
