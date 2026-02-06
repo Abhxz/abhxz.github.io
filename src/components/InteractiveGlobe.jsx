@@ -145,7 +145,7 @@ export default function InteractiveGlobe() {
         <div className="absolute top-4 left-4 z-10 pointer-events-none">
           <span className="text-xs font-mono text-green-400 animate-pulse flex items-center gap-2">
             <span className="w-2 h-2 bg-green-500 rounded-full"></span>
-            ● LIVE TRACKING: HYDERABAD
+            LIVE TRACKING: HYDERABAD
           </span>
         </div>
       )}
