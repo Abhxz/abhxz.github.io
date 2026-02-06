@@ -15,11 +15,18 @@ export default function InteractiveGlobe() {
 
   useEffect(() => {
     let phi = 0;
+    let width = 0;
+
+    // Safety check: Ensure canvas exists before trying to draw
+    if (!canvasRef.current) return;
+
+    // specific fix: ensure container has width
+    width = canvasRef.current.offsetWidth;
 
     const globe = createGlobe(canvasRef.current, {
       devicePixelRatio: 2,
-      width: 600 * 2,
-      height: 600 * 2,
+      width: width * 2 || 600 * 2, // Fallback if width is 0
+      height: width * 2 || 600 * 2,
       phi: 0,
       theta: 0,
       dark: 1,
