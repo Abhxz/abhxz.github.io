@@ -15,7 +15,7 @@ const App = () => {
         <div className="col-span-1 md:col-span-2 md:row-span-2 bg-neutral-900 rounded-3xl p-8 flex flex-col justify-between border border-neutral-800 hover:border-neutral-700 transition-colors">
           <div>
             <div className="inline-block px-3 py-1 rounded-full bg-green-500/10 border border-green-500/20 text-green-400 text-xs font-mono mb-4">
-              AVAILABLE FOR HIRE
+              AVAILABLE FOR WORK
             </div>
             <h1 className="text-5xl md:text-7xl font-bold tracking-tighter mb-4">
               Abhay<br />Pratap<br />Singh.
@@ -42,26 +42,26 @@ const App = () => {
           <InteractiveGlobe />
         </div>
 
+        {/* CURRENT ROLE SECTION */}
+        <div className="col-span-1 md:col-span-1 bg-neutral-900 rounded-3xl p-6 border border-neutral-800 flex flex-col justify-between">
+           <h3 className="text-neutral-500 text-xs font-mono uppercase">Current Role</h3>
+           <div>
+             <div className="text-3xl font-bold">Optum(UHG)</div>
+             <div className="text-neutral-400 text-sm">Sr. Software Engineer</div>
+             <div className="text-neutral-600 text-xs mt-1">2022 — Present</div>
+           </div>
+        </div>
+
         {/* TECH STACK SECTION */}
         <div className="col-span-1 md:col-span-1 bg-neutral-900 rounded-3xl p-6 border border-neutral-800 flex flex-col justify-center">
           <h3 className="text-neutral-500 text-xs font-mono mb-4 uppercase">Core Stack</h3>
           <div className="flex flex-wrap gap-2">
-            {['Java', 'Spring Boot', 'Kafka', 'Azure', 'Python', 'ElasticSearch', 'React'].map((tech) => (
+            {['Java', 'Spring Boot', 'Kafka', 'Python', 'Azure', 'Github Actions', 'Postgres', 'GenAI'].map((tech) => (
               <span key={tech} className="px-3 py-1 bg-neutral-800 rounded-md text-sm text-neutral-300 border border-neutral-700">
                 {tech}
               </span>
             ))}
           </div>
-        </div>
-
-        {/* CURRENT ROLE SECTION */}
-        <div className="col-span-1 md:col-span-1 bg-neutral-900 rounded-3xl p-6 border border-neutral-800 flex flex-col justify-between">
-           <h3 className="text-neutral-500 text-xs font-mono uppercase">Current Role</h3>
-           <div>
-             <div className="text-3xl font-bold">Optum</div>
-             <div className="text-neutral-400 text-sm">Sr. Software Engineer</div>
-             <div className="text-neutral-600 text-xs mt-1">2022 — Present</div>
-           </div>
         </div>
 
         {/* TERMINAL SECTION */}
