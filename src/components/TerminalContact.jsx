@@ -26,8 +26,8 @@ const TerminalContact = () => {
       <div className="flex-1 overflow-y-auto text-green-400">
         {status === 'SENT' ? (
           <div className="animate-pulse text-green-300">
-            <p>> Packet sent successfully.</p>
-            <p>> Abhay will respond shortly.</p>
+            <p> Packet sent successfully.</p>
+            <p> Abhay will respond shortly.</p>
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="space-y-4">
