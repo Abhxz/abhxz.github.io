@@ -73,37 +73,41 @@ export default function InteractiveGlobe() {
   }, [isExpanded]); // Re-render globe behavior when state changes
 
   return (
-    <div
-      ref={containerRef}
-      className={`relative w-full h-full flex items-center justify-center bg-black overflow-hidden transition-all duration-500 ease-in-out
-        ${isExpanded ? 'fixed inset-0 z-50 bg-black/95 backdrop-blur-xl p-8' : 'cursor-pointer group hover:bg-neutral-800'}
-      `}
-      onClick={handleGlobeClick}
-    >
-      {/* EXPANDED VIEW: DETAILS PANEL */}
-      {isExpanded && (
-        <div className="absolute inset-0 flex flex-col md:flex-row z-20 container mx-auto p-4 md:p-10 animate-fade-in">
+  <div
+    ref={containerRef}
+    className={`relative w-full h-full flex items-center justify-center bg-black overflow-hidden transition-all duration-500 ease-in-out
+      ${isExpanded ? 'fixed inset-0 z-50 bg-black/95 backdrop-blur-xl' : 'cursor-pointer group hover:bg-neutral-800'}
+    `}
+    onPointerUp={(e) => {
+      // Only open if we are NOT already expanded and it wasn't a drag
+      if (!isExpanded && e.button === 0) handleGlobeClick();
+    }}
+  >
 
-          {/* Close Button */}
-          <button
-            onClick={handleClose}
-            className="absolute top-6 right-6 p-2 bg-white/10 rounded-full hover:bg-white/20 transition-colors z-30"
-          >
-            <X className="text-white" size={24} />
-          </button>
+    {/* --- EXPANDED VIEW --- */}
+    {isExpanded && (
+      <>
+        {/* 1. CLOSE BUTTON (Moved outside the layout div for safety) */}
+        <button
+          onClick={handleClose}
+          className="absolute top-6 right-6 z-[60] p-2 bg-neutral-800 text-white rounded-full hover:bg-red-500 hover:rotate-90 transition-all duration-300 shadow-xl border border-neutral-700 cursor-pointer"
+        >
+          <X size={24} />
+        </button>
 
-          {/* Left Side: The Globe (Moves to side) */}
-          <div className="hidden md:flex flex-1 items-center justify-center opacity-50 pointer-events-none">
-             {/* The canvas stays in background */}
-          </div>
+        {/* 2. THE LAYOUT (Resume & Globe) */}
+        <div className="absolute inset-0 flex flex-col md:flex-row z-20 w-full max-w-7xl mx-auto p-4 md:p-8 animate-fade-in pointer-events-none">
 
-          {/* Right Side: Timeline Cards */}
-          <div className="flex-1 overflow-y-auto pr-2 custom-scrollbar mt-16 md:mt-0">
-            <h2 className="text-4xl font-bold text-white mb-8 border-l-4 border-green-500 pl-4">
+          {/* Left Side: Globe Placeholder (Empty space so globe shows through) */}
+          <div className="hidden md:flex md:w-2/5 h-full"></div>
+
+          {/* Right Side: Timeline Cards (Scrollable) */}
+          <div className="flex-1 md:w-3/5 h-full overflow-y-auto pr-2 custom-scrollbar mt-16 md:mt-0 pointer-events-auto">
+            <h2 className="text-4xl font-bold text-white mb-8 border-l-4 border-green-500 pl-4 sticky top-0 bg-black/50 backdrop-blur-md py-4">
               Career Journey
             </h2>
 
-            <div className="space-y-6">
+            <div className="space-y-6 pb-20"> {/* pb-20 ensures last card isn't cut off */}
               {careerHistory.map((item) => (
                 <div
                   key={item.id}
@@ -138,34 +142,34 @@ export default function InteractiveGlobe() {
             </div>
           </div>
         </div>
-      )}
+      </>
+    )}
 
-      {/* DEFAULT VIEW: LIVE TRACKING LABEL */}
-      {!isExpanded && (
-        <div className="absolute top-4 left-4 z-10 pointer-events-none">
-          <span className="text-xs font-mono text-green-400 animate-pulse flex items-center gap-2">
-            <span className="w-2 h-2 bg-green-500 rounded-full"></span>
-            LIVE TRACKING: HYDERABAD
-          </span>
-        </div>
-      )}
+    {/* --- DEFAULT VIEW OVERLAYS --- */}
+    {!isExpanded && (
+      <div className="absolute top-4 left-4 z-10 pointer-events-none">
+        <span className="text-xs font-mono text-green-400 animate-pulse flex items-center gap-2">
+          <span className="w-2 h-2 bg-green-500 rounded-full"></span>
+          LIVE TRACKING: HYDERABAD
+        </span>
+      </div>
+    )}
 
-      {/* THE 3D CANVAS */}
-      <canvas
-        ref={canvasRef}
-        style={{ width: '100%', height: '100%', maxWidth: '600px', aspectRatio: 1 }}
-        className={`transition-all duration-700
-          ${isExpanded ? 'scale-150 opacity-20 translate-x-[-25%]' : 'opacity-80 group-hover:opacity-100'}
-        `}
-      />
+    {/* --- THE 3D GLOBE CANVAS --- */}
+    <canvas
+      ref={canvasRef}
+      style={{ width: '100%', height: '100%', maxWidth: '600px', aspectRatio: 1, touchAction: 'none' }}
+      className={`transition-all duration-700
+        ${isExpanded ? 'scale-150 opacity-20 translate-x-[-25%]' : 'opacity-80 group-hover:opacity-100'}
+      `}
+    />
 
-      {/* DEFAULT VIEW: BOTTOM LABEL */}
-      {!isExpanded && (
-        <div className="absolute bottom-4 right-4 text-right pointer-events-none">
-          <p className="text-gray-500 text-xs font-mono">CLICK TO EXPLORE</p>
-          <p className="text-white font-bold text-xl tracking-tighter">MAP VIEW</p>
-        </div>
-      )}
-    </div>
-  );
+    {!isExpanded && (
+      <div className="absolute bottom-4 right-4 text-right pointer-events-none">
+        <p className="text-gray-500 text-xs font-mono">CLICK TO EXPLORE MY</p>
+        <p className="text-white font-bold text-xl tracking-tighter">EXPERIENCE JOURNEY</p>
+      </div>
+    )}
+  </div>
+);
 }

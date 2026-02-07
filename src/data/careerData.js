@@ -1,15 +1,27 @@
 export const careerHistory = [
   {
-    id: "exp-2",
+    id: "exp-3",
     category: "work",
-    title: "Sr. Software Engineer",
+    title: "Lead Software Engineer",
     organization: "Optum (UHG)",
     location: "Hyderabad, India",
     coordinates: [17.4401, 78.3489],
     dates: "Mar 2022 – Present",
-    description: "Leading digital transformation in communication. Engineering scalable microservices on Azure with Kafka and OpenAI.",
-    awards: ["Bravo! Diamond Award", "High Flyer", "Problem Solver Praise"],
-    tech: ["Java", "Kafka", "Azure", "PostgreSQL", "GitHub Copilot", "Jenkins"]
+    description: "Leading digital transformation in Health Tech where designed and modernised Medical Data Ingestion and Routing Platform. Engineering scalable microservices on Azure with Kafka and OpenAI.",
+    awards: ["Certificate for Excellence"],
+    tech: ["Java", "Python", "Kafka", "Azure", "GitHub Copilot", "GithubActions", "PostgreSQL"]
+  },
+  {
+      id: "exp-2",
+      category: "work",
+      title: "Sr. Software Engineer",
+      organization: "Optum (UHG)",
+      location: "Hyderabad, India",
+      coordinates: [17.4401, 78.3489],
+      dates: "Mar 2024 – Mar 2025",
+      description: "Leading digital transformation in communication. Engineering scalable microservices on Azure with Java, Kafka, OpenAI and different DB.",
+      awards: ["Bravo! Diamond Award", "High Flyer", "Problem Solver Praise"],
+      tech: ["Java", "Kafka", "Azure", "PostgreSQL", "GitHub Copilot", "Python"]
   },
   {
     id: "exp-1",
