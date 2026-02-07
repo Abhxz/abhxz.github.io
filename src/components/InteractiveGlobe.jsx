@@ -157,11 +157,17 @@ export default function InteractiveGlobe() {
 
     {/* --- THE 3D GLOBE CANVAS --- */}
     <canvas
-      ref={canvasRef}
-      style={{ width: '100%', height: '100%', maxWidth: '600px', aspectRatio: 1, touchAction: 'none' }}
-      className={`transition-all duration-700
-        ${isExpanded ? 'scale-150 opacity-20 translate-x-[-25%]' : 'opacity-80 group-hover:opacity-100'}
-      `}
+        ref={canvasRef}
+        style={{
+          width: '100%',
+          height: 'auto', // CHANGED: Was '100%'. 'auto' keeps it square & centered.
+          maxWidth: '600px',
+          aspectRatio: 1,
+          touchAction: 'none'
+        }}
+        className={`transition-all duration-700
+          ${isExpanded ? 'scale-150 opacity-20 translate-x-[-25%]' : 'opacity-80 group-hover:opacity-100'}
+        `}
     />
 
     {!isExpanded && (

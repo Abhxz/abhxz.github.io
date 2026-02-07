@@ -28,7 +28,7 @@ export const careerHistory = [
     category: "work",
     title: "System Engineer",
     organization: "Infosys Ltd.",
-    location: "Hyderabad, India",
+    location: "Mysore, India",
     coordinates: [17.4401, 78.3489],
     dates: "Oct 2019 – Feb 2022",
     description: "Developed Type Ahead Suggestion features and Web Crawlers. Optimized search modules improving performance.",
