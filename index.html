@@ -1,14 +1,677 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="./vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Abhay Pratap Singh | Senior Software Engineer</title>
-    <script type="module" crossorigin src="/assets/index-iS3lZpzB.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-B9BETNHb.css">
-  </head>
-  <body class="bg-black">
-    <div id="root"></div>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Happy Anniversary, Diksha ❤️</title>
+
+    <link rel="manifest" href="manifest.json">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=Playfair+Display:ital,wght@0,500;0,700;1,500&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <style>
+        :root {
+            --bg-gradient: linear-gradient(-45deg, #ff8a9e, #e8a5b8, #ffb3c6, #ff7e93);
+            --card-bg: linear-gradient(135deg, rgba(255, 255, 255, 0.4), rgba(255, 240, 245, 0.25));
+            --text-main: #2b1b1d;
+            --text-accent: #ffffff;
+            --heart-color: #A41623;
+            --gold: #D4AF37;
+            --shadow: 0 25px 50px rgba(0,0,0,0.15);
+            --smooth-curve: cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            background: var(--bg-gradient);
+            background-size: 300% 300%;
+            animation: gradientBG 20s ease infinite;
+            color: var(--text-accent);
+            font-family: 'Lora', serif;
+            overflow: hidden; height: 100vh;
+            display: flex; justify-content: center; align-items: center;
+        }
+
+        h1, h2, .card-names { font-family: 'Playfair Display', serif; }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        #passcode-screen {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.4); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
+            display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 150;
+            transition: opacity 0.8s var(--smooth-curve);
+        }
+        #passcode-screen h2 { color: #fff; font-size: 2.2rem; margin-bottom: 5px; font-weight: 500; letter-spacing: 1px;}
+        #passcode-screen p { color: rgba(255,255,255,0.8); font-size: 1rem; margin-bottom: 20px; font-family: 'Lora', serif;}
+        #passcode-screen input {
+            padding: 15px; font-size: 1.5rem; text-align: center; border: 2px solid rgba(255,255,255,0.6);
+            border-radius: 16px; background: rgba(255,255,255,0.15); color: #fff; width: 160px;
+            letter-spacing: 8px; outline: none; box-shadow: var(--shadow); transition: all 0.3s;
+        }
+        #passcode-screen input:focus { border-color: var(--gold); background: rgba(255,255,255,0.25); }
+        #passcode-screen input::placeholder { color: rgba(255,255,255,0.4); }
+
+        #landing-screen {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            z-index: 100; transition: opacity 1.2s var(--smooth-curve), transform 1.2s var(--smooth-curve);
+            background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(8px);
+        }
+
+        .landing-title { text-align: center; margin-bottom: 25px; }
+        .title-line1 { font-size: 2rem; display: block; margin-bottom: 5px; font-weight: 500; font-family: 'Playfair Display', serif; color: rgba(255,255,255,0.95);}
+        .title-line2 { font-size: 3.5rem; display: block; color: #ffffff; font-family: 'Playfair Display', serif; text-shadow: 0 0 15px rgba(255, 255, 255, 0.4); font-style: italic; font-weight: 500;}
+
+        .landing-date { font-size: 1.4rem; font-weight: bold; color: #fff; margin-bottom: 5px; font-family: 'Playfair Display', serif; letter-spacing: 1px;}
+        .landing-subtitle { font-size: 1.1rem; color: rgba(255,255,255,0.95); margin-bottom: 50px; text-align: center; font-style: italic;}
+
+        .cta-btn {
+            background: rgba(255,255,255,0.25); color: #fff; border: 1px solid rgba(255,255,255,0.6); padding: 18px 45px;
+            font-size: 1.1rem; border-radius: 40px; cursor: pointer; box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+            backdrop-filter: blur(10px); transition: all 0.4s var(--smooth-curve); text-transform: uppercase; letter-spacing: 2px; font-family: 'Playfair Display', serif;
+        }
+        .cta-btn:hover { background: rgba(255,255,255,0.4); transform: translateY(-3px); box-shadow: 0 15px 40px rgba(0,0,0,0.2); border-color: #fff; color: #fff;}
+        .cta-btn:active { transform: scale(0.95); }
+
+        .orb { position: absolute; border-radius: 50%; background: radial-gradient(circle, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 70%); animation: floatUpOrb 12s infinite linear; opacity: 0; z-index: 90; }
+        @keyframes floatUpOrb { 0% { transform: translateY(100vh) scale(0.5); opacity: 0; } 20% { opacity: 0.8; } 80% { opacity: 0.8; } 100% { transform: translateY(-20vh) scale(1.5); opacity: 0; } }
+
+        .bg-particle { position: absolute; background: rgba(255,255,255,0.3); border-radius: 50%; animation: floatUpBg 20s linear infinite; z-index: 1; pointer-events: none; filter: blur(3px);}
+        @keyframes floatUpBg { 0% { transform: translateY(0) rotate(0deg); } 100% { transform: translateY(-120vh) rotate(360deg); } }
+
+        #deck-container { width: 90%; max-width: 420px; height: 75vh; position: relative; perspective: 2000px; display: none; z-index: 10; transition: opacity 0.8s var(--smooth-curve);}
+
+        .card {
+            width: 100%; height: 100%; position: absolute; top: 0; left: 0;
+            transition: transform 1.2s var(--smooth-curve), opacity 1s var(--smooth-curve);
+            transform-style: preserve-3d; opacity: 0; pointer-events: none;
+            will-change: transform, opacity;
+        }
+        .card.active { opacity: 1; pointer-events: auto; z-index: 10; transform: translateX(0) rotateY(0) scale(1); }
+        .card.prev { transform: translateX(-120%) rotateY(-15deg) scale(0.85); opacity: 0; z-index: 5;}
+        .card.next { transform: translateX(120%) rotateY(15deg) scale(0.85); opacity: 0; z-index: 5;}
+
+        .card-inner {
+            width: 100%; height: 100%; position: relative;
+            transition: transform 1.2s var(--smooth-curve);
+            transform-style: preserve-3d; border-radius: 25px; box-shadow: var(--shadow);
+        }
+
+        @keyframes freeSuspend {
+            0% { transform: translateY(0) rotateX(2deg) rotateY(-2deg) rotateZ(0deg); }
+            33% { transform: translateY(-10px) rotateX(-3deg) rotateY(4deg) rotateZ(1deg); }
+            66% { transform: translateY(8px) rotateX(4deg) rotateY(-3deg) rotateZ(-1deg); }
+            100% { transform: translateY(0) rotateX(2deg) rotateY(-2deg) rotateZ(0deg); }
+        }
+        .card.active:not(.is-flipped) .card-inner { animation: freeSuspend 8s ease-in-out infinite; }
+        .card.is-flipped .card-inner { transform: rotateY(180deg); animation: none; }
+
+        .card-face {
+            position: absolute; width: 100%; height: 100%; backface-visibility: hidden; -webkit-backface-visibility: hidden;
+            background: var(--card-bg);
+            backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.4); border-radius: 25px;
+            display: flex; flex-direction: column; align-items: center; padding: 25px 20px; text-align: center;
+            box-shadow: inset 0 0 20px rgba(255,255,255,0.2);
+            cursor: pointer;
+        }
+
+        .card-back { transform: rotateY(180deg); justify-content: flex-start; cursor: default; pointer-events: none;}
+        .card.is-flipped .card-back { pointer-events: auto; }
+
+        .card-names {
+            font-size: 0.85rem; letter-spacing: 4px; color: rgba(255,255,255,0.9);
+            text-transform: uppercase; font-weight: 700; width: 100%; position: relative; z-index: 5;
+            border-bottom: 1px solid rgba(255,255,255,0.3); padding-bottom: 12px; margin-bottom: 5px; flex-shrink: 0;
+        }
+
+        .card-names.bottom {
+            border-bottom: none; border-top: 1px solid rgba(255,255,255,0.3);
+            padding-bottom: 0; padding-top: 12px; margin-bottom: 0; margin-top: 10px;
+        }
+
+        .front-content { flex: 1; display: flex; flex-direction: column; justify-content: center; width: 100%; }
+
+        .pre-title { font-size: 0.8rem; color: rgba(255,255,255,0.8); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 10px; font-weight: 500;}
+        .title { font-size: 2.6rem; color: #fff; margin-bottom: 20px; font-style: italic; text-shadow: 0 2px 10px rgba(0,0,0,0.1); line-height: 1.2;}
+
+        .hint { font-size: 0.9rem; color: #fff; background: rgba(255,255,255,0.25); padding: 8px 25px; border-radius: 30px; margin-top: auto; margin-bottom: 15px; animation: gentlePulse 2.5s infinite var(--smooth-curve); border: 1px solid rgba(255,255,255,0.4); flex-shrink: 0; font-family: 'Playfair Display', serif; letter-spacing: 1px;}
+
+        @keyframes gentlePulse { 0%, 100% { transform: translateY(0) scale(1); opacity: 0.8; } 50% { transform: translateY(-5px) scale(1.02); opacity: 1; } }
+
+        .poem-container {
+            flex: 1; display: flex; flex-direction: column; justify-content: flex-start;
+            width: 100%; overflow-y: auto; scrollbar-width: none; padding: 5px; margin-bottom: 10px;
+        }
+        .poem-container::-webkit-scrollbar { display: none; }
+
+        .poem-container > :first-child { margin-top: auto; }
+        .poem-container > :last-child { margin-bottom: auto; }
+
+        .poem-line { font-size: 1.05rem; line-height: 1.5; margin-bottom: 10px; opacity: 0; transform: translateY(15px); transition: all 1s var(--smooth-curve); color: var(--text-main); text-shadow: 0 1px 2px rgba(255,255,255,0.5); font-weight: 500;}
+
+        .card.is-flipped .poem-line { opacity: 1; transform: translateY(0); }
+        .card.is-flipped .poem-line:nth-child(1) { transition-delay: 0.3s; }
+        .card.is-flipped .poem-line:nth-child(2) { transition-delay: 0.8s; }
+        .card.is-flipped .poem-line:nth-child(3) { transition-delay: 1.3s; }
+        .card.is-flipped .poem-line:nth-child(4) { transition-delay: 1.8s; }
+        .card.is-flipped .poem-line:nth-child(5) { transition-delay: 2.3s; }
+        .card.is-flipped .poem-line:nth-child(6) { transition-delay: 2.8s; }
+        .card.is-flipped .poem-line:nth-child(7) { transition-delay: 3.3s; }
+
+        /* CUSTOM MUSIC PLAYER CSS */
+        .custom-player {
+            width: 100%; background: rgba(255,255,255,0.25); border: 1px solid rgba(255,255,255,0.4);
+            border-radius: 15px; padding: 12px 15px; display: flex; align-items: center; justify-content: space-between;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1); flex-shrink: 0; opacity: 0; transform: translateY(10px);
+            transition: all 1.2s var(--smooth-curve); transition-delay: 2.5s; backdrop-filter: blur(5px);
+        }
+        .card.is-flipped .custom-player { opacity: 1; transform: translateY(0); }
+
+        .track-info { display: flex; flex-direction: column; align-items: flex-start; text-align: left; overflow: hidden;}
+        .track-title { font-family: -apple-system, sans-serif; font-size: 0.95rem; font-weight: 600; color: #333; margin-bottom: 2px;}
+        .track-artist { font-family: -apple-system, sans-serif; font-size: 0.8rem; color: #555;}
+
+        .play-btn {
+            width: 42px; height: 42px; border-radius: 50%; background: var(--gold); border: none; color: #fff;
+            font-size: 16px; display: flex; justify-content: center; align-items: center; cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15); transition: transform 0.2s; padding-left: 3px;
+        }
+        .play-btn.playing { padding-left: 0; }
+        .play-btn:active { transform: scale(0.9); }
+
+        #progress { position: fixed; bottom: 30px; display: none; gap: 8px; z-index: 50; transition: opacity 0.8s; flex-wrap: wrap; justify-content: center; width: 90%; max-width: 400px;}
+        .heart-dot { font-size: 18px; color: rgba(255,255,255,0.5); transition: all 0.6s var(--smooth-curve); text-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .heart-dot.filled { color: var(--heart-color); transform: scale(1.3); text-shadow: 0 0 15px rgba(164, 22, 35, 0.5); }
+
+        #swipe-hint {
+            position: fixed; bottom: 80px; left: 50%; transform: translateX(-50%);
+            display: none; opacity: 0; transition: opacity 0.8s var(--smooth-curve); z-index: 50;
+            background: rgba(255,255,255,0.15); padding: 8px 30px; border-radius: 40px;
+            backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.3); box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            align-items: center; justify-content: center; pointer-events: none;
+        }
+        .hand-icon {
+            animation: swipeHand 1.8s ease-in-out infinite;
+        }
+        @keyframes swipeHand {
+            0% { transform: translateX(12px) rotate(-10deg); opacity: 0.6;}
+            50% { transform: translateX(-12px) rotate(10deg); opacity: 1;}
+            100% { transform: translateX(12px) rotate(-10deg); opacity: 0.6;}
+        }
+    </style>
+</head>
+<body>
+
+<div class="bg-particle" style="width: 200px; height: 200px; left: -50px; bottom: -100px; animation-duration: 25s;"></div>
+<div class="bg-particle" style="width: 300px; height: 300px; right: -100px; top: 20%; animation-duration: 30s;"></div>
+
+<div id="passcode-screen">
+    <h2>Enter Passcode</h2>
+    <p>(Hint: The Anniversary Date DDMM)</p>
+    <input type="tel" id="passcodeInput" maxlength="4" placeholder="••••">
+</div>
+
+<div id="landing-screen">
+    <div class="orb" style="width: 80px; height: 80px; left: 15%; animation-delay: 0s;"></div>
+    <div class="orb" style="width: 120px; height: 120px; left: 45%; animation-delay: 3s;"></div>
+    <div class="orb" style="width: 60px; height: 60px; left: 75%; animation-delay: 1s;"></div>
+    <div class="orb" style="width: 90px; height: 90px; left: 85%; animation-delay: 5s;"></div>
+
+    <h1 class="landing-title">
+        <span class="title-line1">Happy Anniversary,</span>
+        <span class="title-line2">Diksha ❤️</span>
+    </h1>
+    <div class="landing-date">17 February</div>
+    <div class="landing-subtitle">Our story, one memory at a time.</div>
+
+    <button class="cta-btn" onclick="startExperience()">Relive Our Story</button>
+</div>
+
+<div id="deck-container"></div>
+
+<div id="swipe-hint">
+    <svg class="hand-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M18 11V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v0"></path>
+        <path d="M14 10V4a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v2"></path>
+        <path d="M10 10.5V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v8"></path>
+        <path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"></path>
+    </svg>
+</div>
+
+<div id="progress"></div>
+
+<script>
+        // --- DATA UPDATED FOR LOCAL MP3S ---
+        const cardsData = [
+            {
+                pre: "Abhay & Diksha",
+                title: "THE BEGINNING",
+                poem: [
+                    "I never thanked you enough...",
+                    "तो आज थोडा सा कह देता हूँ"
+                ],
+                songTitle: "Shukran Allah",
+                songArtist: "Kurbaan",
+                audioFile: "audio/shukran.mp3"
+            },
+            {
+                pre: "The Beginning",
+                title: "Marriage",
+                poem: [
+                    "Thank you for marrying me.",
+                    "Not just once... but every day.",
+                    "Perfect toh main kabhi tha nahi,",
+                    "par tumne phir bhi \"haan\" bol diya."
+                ],
+                songTitle: "Marry You",
+                songArtist: "Bruno Mars",
+                audioFile: "audio/marryyou.mp3"
+            },
+            {
+                pre: "Abhay & Diksha",
+                title: "Home",
+                poem: [
+                    "You turned our house into a home.",
+                    "Ghar tab bana jab tum aayi.",
+                    "Makaan pehle bhi tha, par sukoon tum laayi."
+                ],
+                songTitle: "I Get To Love You",
+                songArtist: "Ruelle",
+                audioFile: "audio/igettoloveyou.mp3"
+            },
+            {
+                pre: "Home",
+                title: "Sweetness",
+                poem: [
+                    "Thank you for every meal, every effort,",
+                    "and every \"aur le lo\".",
+                    "Tumhare haath ka khana sirf taste nahi,",
+                    "usme pyaar thoda zyada hota hai."
+                ],
+                songTitle: "Chashni",
+                songArtist: "Bharat",
+                audioFile: "audio/chashni.mp3"
+            },
+            {
+                pre: "Abhay & Diksha",
+                title: "Strength",
+                poem: [
+                    "Thank you for standing by me,",
+                    "especially when I wasn't easy to love.",
+                    "Mere ups aur downs mein, tum constant rahi."
+                ],
+                songTitle: "Tujh Mein Rab Dikhta Hai",
+                songArtist: "Rab Ne Bana Di Jodi",
+                audioFile: "audio/tujhmeinrab.mp3"
+            },
+            {
+                pre: "Strength",
+                title: "Joy",
+                poem: [
+                    "Life feels lighter with you.",
+                    "Tum saath ho toh problems bhi serious nahi lagti,",
+                    "shayad isliye main thoda zyada hasta hoon."
+                ],
+                songTitle: "Matargashti",
+                songArtist: "Tamasha",
+                audioFile: "audio/matargashti.mp3"
+            },
+            {
+                pre: "Abhay & Diksha",
+                title: "Love",
+                poem: [
+                    "I Love You.",
+                    "Not loudly. Not perfectly. But honestly.",
+                    "Jo hai... woh sab tum ho."
+                ],
+                songTitle: "Perfect",
+                songArtist: "Ed Sheeran",
+                audioFile: "audio/perfect.mp3"
+            },
+            {
+                pre: "Love",
+                title: "Us",
+                poem: [
+                    "Even when we are apart, you are always with me.",
+                    "Faasle sirf distance hote hain,",
+                    "pyaar kabhi kam nahi hota."
+                ],
+                songTitle: "Dooriyan",
+                songArtist: "Love Aaj Kal",
+                audioFile: "audio/dooriyan.mp3"
+            },
+            {
+                pre: "Us, In Songs",
+                title: "Playlist Code",
+                poem: [
+                    "Har gaana perfect nahi,",
+                    "par saath sunne wali",
+                    "perfect hai.",
+                    "❤️"
+                ],
+                songTitle: "Our Playlist",
+                songArtist: "Abhay & Diksha",
+                audioFile: "audio/dooriyan.mp3" // Play a favorite song here as well
+            },
+            {
+                isAnalyticsCard: true,
+                pre: "The Finale",
+                title: "A Little Secret"
+            }
+        ];
+
+        let currentIndex = 0;
+        let timeTrackerStart = 0;
+        let timeSpentOnCards = new Array(9).fill(0);
+
+        function triggerHaptic() {
+            if (navigator.vibrate) navigator.vibrate(40);
+        }
+
+        if (sessionStorage.getItem('diksha_unlocked') === 'true') {
+            document.getElementById('passcode-screen').style.display = 'none';
+        }
+
+        const passcodeInput = document.getElementById('passcodeInput');
+        passcodeInput.addEventListener('input', (e) => {
+            if(e.target.value === '1702') {
+                sessionStorage.setItem('diksha_unlocked', 'true');
+                document.getElementById('passcode-screen').style.opacity = '0';
+                document.getElementById('passcode-screen').style.pointerEvents = 'none';
+                setTimeout(() => document.getElementById('passcode-screen').style.display = 'none', 800);
+            }
+        });
+
+        const deck = document.getElementById('deck-container');
+        const progress = document.getElementById('progress');
+
+        // SVG Icons for Audio Player
+        const playIcon = `<svg width="20" height="20" viewBox="0 0 24 24" fill="white" stroke="white" stroke-width="2" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>`;
+        const pauseIcon = `<svg width="20" height="20" viewBox="0 0 24 24" fill="white" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>`;
+
+        cardsData.forEach((data, index) => {
+            const card = document.createElement('div');
+            card.className = `card ${index === 0 ? 'active' : 'next'}`;
+
+            if (data.isAnalyticsCard) {
+                card.innerHTML = `
+                    <div class="card-inner">
+                        <div class="card-face card-front" onclick="flipAnalyticsCard(${index})">
+                            <div class="card-names">ABHAY & DIKSHA</div>
+                            <div class="front-content">
+                                <div class="pre-title">${data.pre}</div>
+                                <h2 class="title">${data.title}</h2>
+                            </div>
+                            <span class="hint">Tap to reveal</span>
+                            <div class="card-names bottom"></div>
+                        </div>
+                        <div class="card-face card-back">
+                            <div class="card-names">ABHAY & DIKSHA</div>
+                            <div class="poem-container" style="justify-content: center;">
+                                <div class="pre-title" style="margin-bottom: 20px; color: #4A3B3C;">Your Memories</div>
+                                <p class="poem-line" style="margin-bottom: 25px; font-size: 1.4rem;">You’ve smiled through 9 cards. ❤️</p>
+                                <p class="poem-line" style="margin-bottom: 5px; font-size: 1rem; color: #666;">Time spent on this card: longest</p>
+                                <p class="poem-line" id="fav-card-title" style="font-size: 2.2rem; font-weight: 500; color: #A41623; font-family: 'Playfair Display', serif; line-height: 1.2;">"..."</p>
+                                <button class="cta-btn" style="margin-top: 40px; padding: 12px 35px; font-size: 1rem; color: #fff; background: rgba(164, 22, 35, 0.6); border: none;" onclick="location.reload()">Replay</button>
+                            </div>
+                            <div class="card-names bottom"></div>
+                        </div>
+                    </div>
+                `;
+            } else {
+                let poemHtml = data.poem.map(line => `<p class="poem-line">${line}</p>`).join('');
+
+                /* THE CUSTOM AD-FREE PLAYER */
+                card.innerHTML = `
+                    <div class="card-inner">
+                        <div class="card-face card-front" onclick="flipCard(${index})">
+                            <div class="card-names">ABHAY & DIKSHA</div>
+                            <div class="front-content">
+                                <div class="pre-title">${data.pre}</div>
+                                <h2 class="title">${data.title}</h2>
+                            </div>
+                            <span class="hint">Tap to reveal</span>
+                            <div class="card-names bottom"></div>
+                        </div>
+                        <div class="card-face card-back">
+                            <div class="card-names">ABHAY & DIKSHA</div>
+                            <div class="poem-container">
+                                ${poemHtml}
+                            </div>
+                            <div class="custom-player">
+                                <div class="track-info">
+                                    <div class="track-title">${data.songTitle}</div>
+                                    <div class="track-artist">${data.songArtist}</div>
+                                </div>
+                                <button class="play-btn" id="btn-${index}" onclick="toggleAudio(${index})">
+                                    ${playIcon}
+                                </button>
+                                <audio id="audio-${index}" src="${data.audioFile}" loop></audio>
+                            </div>
+                            <div class="card-names bottom" style="padding-top: 15px; margin-top: 10px;"></div>
+                        </div>
+                    </div>
+                `;
+            }
+            deck.appendChild(card);
+
+            const dot = document.createElement('div');
+            dot.className = 'heart-dot';
+            dot.innerHTML = '♥';
+            progress.appendChild(dot);
+        });
+
+        // --- CUSTOM AUDIO LOGIC ---
+        function toggleAudio(index) {
+            triggerHaptic();
+            const audios = document.querySelectorAll('audio');
+            const btns = document.querySelectorAll('.play-btn');
+            const targetAudio = document.getElementById('audio-' + index);
+            const targetBtn = document.getElementById('btn-' + index);
+
+            if (targetAudio.paused) {
+                // Pause all other playing audios
+                audios.forEach((a, i) => {
+                    a.pause();
+                    if(btns[i]) {
+                        btns[i].innerHTML = playIcon;
+                        btns[i].classList.remove('playing');
+                    }
+                });
+                targetAudio.play().catch(e => console.log("Audio play blocked", e));
+                targetBtn.innerHTML = pauseIcon;
+                targetBtn.classList.add('playing');
+            } else {
+                targetAudio.pause();
+                targetBtn.innerHTML = playIcon;
+                targetBtn.classList.remove('playing');
+            }
+        }
+
+        // Pause audio when swiping away
+        function pauseAllAudio() {
+            const audios = document.querySelectorAll('audio');
+            const btns = document.querySelectorAll('.play-btn');
+            audios.forEach((a, i) => {
+                a.pause();
+                if(btns[i]) {
+                    btns[i].innerHTML = playIcon;
+                    btns[i].classList.remove('playing');
+                }
+            });
+        }
+
+        function startExperience() {
+            triggerHaptic();
+            var duration = 4 * 1000;
+            var animationEnd = Date.now() + duration;
+            var defaults = { startVelocity: 35, spread: 360, ticks: 80, zIndex: 200, colors: ['#A41623', '#ffb6c1', '#ffffff', '#D4AF37', '#f4b8c7'] };
+
+            function randomInRange(min, max) { return Math.random() * (max - min) + min; }
+
+            var interval = setInterval(function() {
+                var timeLeft = animationEnd - Date.now();
+                if (timeLeft <= 0) { return clearInterval(interval); }
+                var particleCount = 60 * (timeLeft / duration);
+                confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } }));
+                confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } }));
+            }, 250);
+
+            const landing = document.getElementById('landing-screen');
+            landing.style.transform = 'scale(1.1) translateY(-20px)';
+            landing.style.opacity = '0';
+
+            setTimeout(() => {
+                landing.style.display = 'none';
+                deck.style.display = 'block';
+                progress.style.display = 'flex';
+                void deck.offsetWidth;
+                updateProgress();
+            }, 1200);
+        }
+
+        function flipCard(index) {
+            if(index !== currentIndex) return;
+            const currentCard = document.querySelectorAll('.card')[currentIndex];
+
+            if(!currentCard.classList.contains('is-flipped')) {
+                triggerHaptic();
+                currentCard.classList.add('is-flipped');
+                timeTrackerStart = Date.now();
+
+                setTimeout(() => {
+                    const hint = document.getElementById('swipe-hint');
+                    hint.style.display = 'flex';
+                    setTimeout(() => hint.style.opacity = '1', 50);
+                }, 2000);
+            }
+        }
+
+        function flipAnalyticsCard(index) {
+            if(index !== currentIndex) return;
+            const currentCard = document.querySelectorAll('.card')[currentIndex];
+
+            if(!currentCard.classList.contains('is-flipped')) {
+                triggerHaptic();
+                pauseAllAudio(); // Stop music when viewing final secret
+
+                let maxTime = 0;
+                let favIndex = 0;
+                timeSpentOnCards.forEach((time, idx) => {
+                    if (time > maxTime) { maxTime = time; favIndex = idx; }
+                });
+
+                document.getElementById('fav-card-title').innerText = `"${cardsData[favIndex].title}"`;
+
+                currentCard.classList.add('is-flipped');
+
+                setTimeout(() => {
+                    confetti({ particleCount: 150, spread: 90, origin: { y: 0.6 }, colors: ['#A41623', '#D4AF37', '#ffffff'] });
+                }, 600);
+            }
+        }
+
+        let touchstartX = 0;
+        let touchendX = 0;
+        const swipeThreshold = 60;
+
+        deck.addEventListener('touchstart', e => {
+            touchstartX = e.changedTouches[0].screenX;
+        }, {passive: true});
+
+        deck.addEventListener('touchend', e => {
+            touchendX = e.changedTouches[0].screenX;
+            let touchDiff = Math.abs(touchendX - touchstartX);
+
+            const currentCard = document.querySelectorAll('.card')[currentIndex];
+
+            if (currentCard) {
+                if (currentCard.classList.contains('is-flipped')) {
+                    if (touchDiff >= swipeThreshold) {
+                        handleSwipe(touchendX, touchstartX);
+                    }
+                } else {
+                    if (touchDiff < 20) {
+                        if (currentIndex === cardsData.length - 1) {
+                            flipAnalyticsCard(currentIndex);
+                        } else {
+                            flipCard(currentIndex);
+                        }
+                    }
+                }
+            }
+        }, {passive: true});
+
+        function logTime() {
+            if (timeTrackerStart > 0 && currentIndex < 9) {
+                timeSpentOnCards[currentIndex] += (Date.now() - timeTrackerStart);
+                timeTrackerStart = 0;
+            }
+        }
+
+        function handleSwipe(endX, startX) {
+            if (endX < startX - swipeThreshold) {
+                logTime(); triggerHaptic(); pauseAllAudio(); goToNextCard();
+            }
+            if (endX > startX + swipeThreshold) {
+                logTime(); triggerHaptic(); pauseAllAudio(); goToPrevCard();
+            }
+        }
+
+        function goToNextCard() {
+            if (currentIndex >= cardsData.length - 1) return;
+
+            const cards = document.querySelectorAll('.card');
+            cards[currentIndex].classList.remove('active');
+            cards[currentIndex].classList.add('prev');
+
+            currentIndex++;
+            cards[currentIndex].classList.remove('next');
+            cards[currentIndex].classList.add('active');
+
+            resetCardState();
+        }
+
+        function goToPrevCard() {
+            if (currentIndex <= 0) return;
+
+            const cards = document.querySelectorAll('.card');
+            cards[currentIndex].classList.remove('active');
+            cards[currentIndex].classList.add('next');
+
+            currentIndex--;
+            cards[currentIndex].classList.remove('prev');
+            cards[currentIndex].classList.add('active');
+
+            resetCardState();
+        }
+
+        function resetCardState() {
+            const hint = document.getElementById('swipe-hint');
+            hint.style.opacity = '0';
+            setTimeout(() => hint.style.display = 'none', 800);
+            updateProgress();
+        }
+
+        function updateProgress() {
+            const dots = document.querySelectorAll('.heart-dot');
+            dots.forEach((dot, idx) => {
+                if (idx <= currentIndex) dot.className = 'heart-dot filled';
+                else dot.className = 'heart-dot';
+            });
+        }
+    </script>
+</body>
 </html>
